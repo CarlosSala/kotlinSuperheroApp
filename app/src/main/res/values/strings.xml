@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">SuperHeroApp</string>
+    <string name="btn_super_hero_app">super hero app</string>
+    <string name="combat">Combat</string>
+    <string name="power">Power</string>
+    <string name="durability">Durability</string>
+    <string name="speed">Speed</string>
+    <string name="strength">Strength</string>
+    <string name="intelligence">Intelligence</string>
+    <string name="todo">TODO</string>
+</resources>
