@@ -50,9 +50,9 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     // retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.10.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.10.0")
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
 
     // Picasso
-    implementation("com.squareup.picasso:picasso:2.71828")
+    implementation(libs.picasso)
 }
