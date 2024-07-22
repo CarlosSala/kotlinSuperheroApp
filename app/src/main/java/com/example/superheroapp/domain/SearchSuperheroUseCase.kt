@@ -1,6 +1,5 @@
 package com.example.superheroapp.domain
 
-import com.example.superheroapp.data.network.model.SuperherosDataResponseDto
 import com.example.superheroapp.data.SuperheroRepository
 import com.example.superheroapp.domain.model.Superheros
 

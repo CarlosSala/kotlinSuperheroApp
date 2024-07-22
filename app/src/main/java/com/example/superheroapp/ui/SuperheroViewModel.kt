@@ -2,7 +2,6 @@ package com.example.superheroapp.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.superheroapp.data.network.model.SuperherosDataResponseDto
 import com.example.superheroapp.domain.SearchSuperheroUseCase
 import com.example.superheroapp.ui.model.SuperherosUI
 import com.example.superheroapp.ui.model.toUIModel
