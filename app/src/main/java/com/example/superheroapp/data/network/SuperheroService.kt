@@ -15,7 +15,7 @@ class SuperheroService {
         return withContext(Dispatchers.IO) {
             val response = retrofit.create(SuperheroApiClient::class.java).getSuperheroes(superhero)
 
-            response.body() ?: SuperherosDataResponseDto("no superhero", emptyList())
+            response.body()!!
         }
     }
 

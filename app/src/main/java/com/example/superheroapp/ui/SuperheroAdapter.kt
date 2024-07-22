@@ -4,9 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.superheroapp.R
-import com.example.superheroapp.data.network.model.SuperheroItemDto
 import com.example.superheroapp.ui.model.SuperheroItemUI
-import com.example.superheroapp.ui.model.SuperherosUI
 
 class SuperheroAdapter(
     private var superheroList: List<SuperheroItemUI> = emptyList(),

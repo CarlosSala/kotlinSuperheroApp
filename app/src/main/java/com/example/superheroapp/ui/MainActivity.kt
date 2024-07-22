@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
     private val viewModel: SuperheroViewModel by viewModels()
 
     companion object {
-        const val BASE_URL: String = "https://superheroapi.com/"
         const val EXTRA_ID: String = "extra_id"
     }
 
@@ -55,14 +54,6 @@ class MainActivity : AppCompatActivity() {
                             Toast.LENGTH_SHORT
                         ).show()
                     }
-
-                } else {
-                    //  runOnUiThread {
-                    Toast.makeText(
-                        this@MainActivity,
-                        "Service not response",
-                        Toast.LENGTH_SHORT
-                    ).show()
                 }
                 hideKeyboard()
             }

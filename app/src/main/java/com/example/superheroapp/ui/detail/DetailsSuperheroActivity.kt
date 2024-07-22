@@ -7,12 +7,11 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
-import com.example.superheroapp.data.network.model.PowerStatsDto
-import com.example.superheroapp.data.network.model.SuperheroDetailResponseDto
 import com.example.superheroapp.databinding.ActivityDetailsSuperheroBinding
 import com.example.superheroapp.ui.MainActivity.Companion.EXTRA_ID
+import com.example.superheroapp.ui.model.PowerStatsUI
+import com.example.superheroapp.ui.model.SuperheroDetailUI
 import com.squareup.picasso.Picasso
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 
@@ -47,22 +46,22 @@ class DetailsSuperheroActivity : AppCompatActivity() {
         }
     }
 
-    private fun createUI(superhero: SuperheroDetailResponseDto) {
+    private fun createUI(superhero: SuperheroDetailUI) {
 
-        Picasso.get().load(superhero.image.url).into(binding.ivSuperhero)
+        Picasso.get().load(superhero.imageUrl).into(binding.ivSuperhero)
         binding.tvSuperheroName.text = superhero.name
-        prepareStats(superhero.powerstats)
-        binding.tvSuperheroRealName.text = superhero.biographyDto.fullName
-        binding.tvPublisher.text = superhero.biographyDto.publisher
+        prepareStats(superhero.powerStats)
+        binding.tvSuperheroRealName.text = superhero.biography.fullName
+        binding.tvPublisher.text = superhero.biography.publisher
     }
 
-    private fun prepareStats(powerStatsDto: PowerStatsDto) {
-        updateHeight(binding.viewCombat, powerStatsDto.combat)
-        updateHeight(binding.viewDurability, powerStatsDto.durability)
-        updateHeight(binding.viewSpeed, powerStatsDto.speed)
-        updateHeight(binding.viewStrength, powerStatsDto.strength)
-        updateHeight(binding.viewIntelligence, powerStatsDto.intelligence)
-        updateHeight(binding.viewPower, powerStatsDto.power)
+    private fun prepareStats(powerStatsUI: PowerStatsUI) {
+        updateHeight(binding.viewCombat, powerStatsUI.combat)
+        updateHeight(binding.viewDurability, powerStatsUI.durability)
+        updateHeight(binding.viewSpeed, powerStatsUI.speed)
+        updateHeight(binding.viewStrength, powerStatsUI.strength)
+        updateHeight(binding.viewIntelligence, powerStatsUI.intelligence)
+        updateHeight(binding.viewPower, powerStatsUI.power)
     }
 
     private fun updateHeight(view: View, stat: String) {
