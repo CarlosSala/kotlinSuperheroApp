@@ -5,12 +5,17 @@ import androidx.lifecycle.viewModelScope
 import com.example.superheroapp.domain.SearchSuperheroUseCase
 import com.example.superheroapp.ui.model.SuperherosUI
 import com.example.superheroapp.ui.model.toUIModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class SuperheroViewModel : ViewModel() {
+@HiltViewModel
+class SuperheroViewModel @Inject constructor(
+    private val searchSuperheroUseCase: SearchSuperheroUseCase
+) : ViewModel() {
 
-    private val searchSuperheroUseCase = SearchSuperheroUseCase()
+    // private val searchSuperheroUseCase = SearchSuperheroUseCase()
 
     private val _superheroModel = MutableStateFlow<SuperherosUI?>(null)
     val superheroModel: MutableStateFlow<SuperherosUI?> = _superheroModel

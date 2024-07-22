@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -52,10 +54,11 @@ dependencies {
     // retrofit
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
-
     // Picasso
     implementation(libs.picasso)
-
     // ViewModel es una capa de la arquitectura
     implementation(libs.lifecycle.viewmodel.ktx)
+    //DaggerHilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
 }

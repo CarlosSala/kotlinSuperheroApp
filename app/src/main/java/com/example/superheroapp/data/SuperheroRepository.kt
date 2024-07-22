@@ -6,10 +6,13 @@ import com.example.superheroapp.domain.model.SuperheroDetail
 import com.example.superheroapp.domain.model.Superheros
 import com.example.superheroapp.domain.model.toDomain
 import com.example.superheroapp.domain.model.toDomainModel
+import javax.inject.Inject
 
-class SuperheroRepository {
+class SuperheroRepository @Inject constructor(
+    private val api: SuperheroService
+) {
 
-    private val api = SuperheroService()
+    // private val api = SuperheroService()
 
     suspend fun getSuperheroFromApi(superhero: String): Superheros {
         val response: SuperherosDataResponseDto = api.getSuperheroes(superhero)

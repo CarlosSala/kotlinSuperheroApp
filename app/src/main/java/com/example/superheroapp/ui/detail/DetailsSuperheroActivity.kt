@@ -12,9 +12,11 @@ import com.example.superheroapp.ui.MainActivity.Companion.EXTRA_ID
 import com.example.superheroapp.ui.model.PowerStatsUI
 import com.example.superheroapp.ui.model.SuperheroDetailUI
 import com.squareup.picasso.Picasso
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 
+@AndroidEntryPoint
 class DetailsSuperheroActivity : AppCompatActivity() {
 
     private val viewModel: SuperheroDetailViewModel by viewModels()

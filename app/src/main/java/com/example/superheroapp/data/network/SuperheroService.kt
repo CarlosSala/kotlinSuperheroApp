@@ -1,20 +1,20 @@
 package com.example.superheroapp.data.network
 
-import com.example.superheroapp.core.RetrofitHelper
 import com.example.superheroapp.data.network.model.SuperheroDetailResponseDto
 import com.example.superheroapp.data.network.model.SuperherosDataResponseDto
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class SuperheroService {
-
-    private val retrofit = RetrofitHelper.getRetrofit()
+class SuperheroService @Inject constructor(
+    private val superheroApiClient: SuperheroApiClient
+) {
+    // private val retrofit = RetrofitHelper.getRetrofit()
 
     suspend fun getSuperheroes(superhero: String): SuperherosDataResponseDto {
 
         return withContext(Dispatchers.IO) {
-            val response = retrofit.create(SuperheroApiClient::class.java).getSuperheroes(superhero)
-
+            val response = superheroApiClient.getSuperheroes(superhero)
             response.body()!!
         }
     }
@@ -23,7 +23,7 @@ class SuperheroService {
 
         return withContext(Dispatchers.IO) {
             val response =
-                retrofit.create(SuperheroApiClient::class.java).getSuperheroDetail(superheroId)
+                superheroApiClient.getSuperheroDetail(superheroId)
             response.body()!!
         }
     }

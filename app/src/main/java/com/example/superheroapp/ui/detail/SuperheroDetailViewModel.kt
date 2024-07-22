@@ -6,12 +6,16 @@ import com.example.superheroapp.data.network.model.SuperheroDetailResponseDto
 import com.example.superheroapp.domain.GetSuperheroDetailUseCase
 import com.example.superheroapp.ui.model.SuperheroDetailUI
 import com.example.superheroapp.ui.model.toUIModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class SuperheroDetailViewModel : ViewModel() {
-
-    private val getSuperheroDetailUseCase = GetSuperheroDetailUseCase()
+@HiltViewModel
+class SuperheroDetailViewModel @Inject constructor(
+    private val getSuperheroDetailUseCase: GetSuperheroDetailUseCase
+) : ViewModel() {
+//   private val getSuperheroDetailUseCase = GetSuperheroDetailUseCase()
 
     private val _superheroDetailModel = MutableStateFlow<SuperheroDetailUI?>(null)
     val superheroDetailModel: MutableStateFlow<SuperheroDetailUI?> = _superheroDetailModel
