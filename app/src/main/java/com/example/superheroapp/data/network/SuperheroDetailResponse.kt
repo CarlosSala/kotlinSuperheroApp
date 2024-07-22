@@ -1,4 +1,4 @@
-package com.example.superheroapp
+package com.example.superheroapp.data.network
 
 import com.google.gson.annotations.SerializedName
 

@@ -55,4 +55,7 @@ dependencies {
 
     // Picasso
     implementation(libs.picasso)
+
+    // ViewModel es una capa de la arquitectura
+    implementation(libs.lifecycle.viewmodel.ktx)
 }

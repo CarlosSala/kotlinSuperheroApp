@@ -1,15 +1,17 @@
-package com.example.superheroapp
+package com.example.superheroapp.ui.detail
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.View
-import com.example.superheroapp.MainActivity.Companion.BASE_URL
-import com.example.superheroapp.MainActivity.Companion.EXTRA_ID
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import com.example.superheroapp.data.network.PowerStatsResponse
+import com.example.superheroapp.data.network.SuperheroApiClient
+import com.example.superheroapp.data.network.SuperheroDetailResponse
 import com.example.superheroapp.databinding.ActivityDetailsSuperheroBinding
-
+import com.example.superheroapp.ui.MainActivity.Companion.BASE_URL
+import com.example.superheroapp.ui.MainActivity.Companion.EXTRA_ID
 import com.squareup.picasso.Picasso
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
@@ -32,10 +34,10 @@ class DetailsSuperheroActivity : AppCompatActivity() {
 
     private fun getSuperheroDetail(id: String) {
 
-        CoroutineScope(Dispatchers.IO).launch {
+        lifecycleScope.launch(Dispatchers.IO) {
 
             val superheroDetail =
-                getRetrofit().create(ApiService::class.java).getSuperheroDetail(id)
+                getRetrofit().create(SuperheroApiClient::class.java).getSuperheroDetail(id)
 
             if (superheroDetail.body() != null) {
                 runOnUiThread {
