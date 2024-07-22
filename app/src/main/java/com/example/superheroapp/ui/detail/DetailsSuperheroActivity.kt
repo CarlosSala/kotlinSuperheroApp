@@ -5,9 +5,9 @@ import android.util.TypedValue
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.example.superheroapp.data.network.PowerStatsResponse
+import com.example.superheroapp.data.network.model.PowerStatsDto
 import com.example.superheroapp.data.network.SuperheroApiClient
-import com.example.superheroapp.data.network.SuperheroDetailResponse
+import com.example.superheroapp.data.network.model.SuperheroDetailResponseDto
 import com.example.superheroapp.databinding.ActivityDetailsSuperheroBinding
 import com.example.superheroapp.ui.MainActivity.Companion.BASE_URL
 import com.example.superheroapp.ui.MainActivity.Companion.EXTRA_ID
@@ -48,22 +48,22 @@ class DetailsSuperheroActivity : AppCompatActivity() {
         }
     }
 
-    private fun createUI(superhero: SuperheroDetailResponse) {
+    private fun createUI(superhero: SuperheroDetailResponseDto) {
 
         Picasso.get().load(superhero.image.url).into(binding.ivSuperhero)
         binding.tvSuperheroName.text = superhero.name
         prepareStats(superhero.powerstats)
-        binding.tvSuperheroRealName.text = superhero.biography.fullName
-        binding.tvPublisher.text = superhero.biography.publisher
+        binding.tvSuperheroRealName.text = superhero.biographyDto.fullName
+        binding.tvPublisher.text = superhero.biographyDto.publisher
     }
 
-    private fun prepareStats(powerStats: PowerStatsResponse) {
-        updateHeight(binding.viewCombat, powerStats.combat)
-        updateHeight(binding.viewDurability, powerStats.durability)
-        updateHeight(binding.viewSpeed, powerStats.speed)
-        updateHeight(binding.viewStrength, powerStats.strength)
-        updateHeight(binding.viewIntelligence, powerStats.intelligence)
-        updateHeight(binding.viewPower, powerStats.power)
+    private fun prepareStats(powerStatsDto: PowerStatsDto) {
+        updateHeight(binding.viewCombat, powerStatsDto.combat)
+        updateHeight(binding.viewDurability, powerStatsDto.durability)
+        updateHeight(binding.viewSpeed, powerStatsDto.speed)
+        updateHeight(binding.viewStrength, powerStatsDto.strength)
+        updateHeight(binding.viewIntelligence, powerStatsDto.intelligence)
+        updateHeight(binding.viewPower, powerStatsDto.power)
     }
 
     private fun updateHeight(view: View, stat: String) {

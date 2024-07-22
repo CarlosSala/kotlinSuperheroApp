@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
                 if (!myResponse?.response.isNullOrEmpty()) {
                     if (myResponse?.response == "success") {
 
-                        adapter.updateList(myResponse.superheroes)
+                        adapter.updateList(myResponse.results)
                     } else {
                         Toast.makeText(
                             this@MainActivity,

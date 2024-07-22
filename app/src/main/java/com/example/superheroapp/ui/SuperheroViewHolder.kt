@@ -2,20 +2,21 @@ package com.example.superheroapp.ui
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.example.superheroapp.data.network.SuperheroItemResponse
+import com.example.superheroapp.data.network.model.SuperheroItemDto
 import com.example.superheroapp.databinding.ItemSuperheroBinding
+import com.example.superheroapp.ui.model.SuperheroItemUI
 import com.squareup.picasso.Picasso
 
 class SuperheroViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     private val binding = ItemSuperheroBinding.bind(view)
 
-    fun bind(superheroItemResponse: SuperheroItemResponse, onItemSelected: (String) -> Unit) {
+    fun bind(superheroItemUI: SuperheroItemUI, onItemSelected: (String) -> Unit) {
 
-        binding.tvSuperheroName.text = superheroItemResponse.name
-        Picasso.get().load(superheroItemResponse.image.url).into(binding.ivSuperhero)
+        binding.tvSuperheroName.text = superheroItemUI.name
+        Picasso.get().load(superheroItemUI.image.url).into(binding.ivSuperhero)
 
         // root is all view of each item, since here to detailSuperheroActivity
-        binding.root.setOnClickListener { onItemSelected(superheroItemResponse.superheroId) }
+        binding.root.setOnClickListener { onItemSelected(superheroItemUI.superheroId) }
     }
 }

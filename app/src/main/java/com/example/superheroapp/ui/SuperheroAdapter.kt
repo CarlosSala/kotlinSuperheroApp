@@ -4,15 +4,17 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.superheroapp.R
-import com.example.superheroapp.data.network.SuperheroItemResponse
+import com.example.superheroapp.data.network.model.SuperheroItemDto
+import com.example.superheroapp.ui.model.SuperheroItemUI
+import com.example.superheroapp.ui.model.SuperherosUI
 
 class SuperheroAdapter(
-    private var superheroList: List<SuperheroItemResponse> = emptyList(),
+    private var superheroList: List<SuperheroItemUI> = emptyList(),
     private val onItemSelected: (String) -> Unit
 ) :
     RecyclerView.Adapter<SuperheroViewHolder>() {
 
-    fun updateList(superheroList: List<SuperheroItemResponse>) {
+    fun updateList(superheroList: List<SuperheroItemUI>) {
         this.superheroList = superheroList
         notifyDataSetChanged()
     }
