@@ -61,4 +61,6 @@ dependencies {
     //DaggerHilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
+
+    implementation(kotlin("script-runtime"))
 }
