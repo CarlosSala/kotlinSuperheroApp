@@ -1,16 +1,15 @@
-package com.example.superheroapp
+package com.example.superheroapp.data.network.model
 
 import com.google.gson.annotations.SerializedName
 
-data class SuperheroDetailResponse(
-
+data class SuperheroDetailResponseDto(
     @SerializedName("name") val name: String,
-    @SerializedName("powerstats") val powerstats: PowerStatsResponse,
-    @SerializedName("image") val image: SuperheroImageDetailResponse,
-    @SerializedName("biography") val biography: Biography
+    @SerializedName("powerstats") val powerstats: PowerStatsDto,
+    @SerializedName("image") val image: SuperheroImageDetailDto,
+    @SerializedName("biography") val biographyDto: BiographyDto
 )
 
-data class PowerStatsResponse(
+data class PowerStatsDto(
     @SerializedName("intelligence") val intelligence: String,
     @SerializedName("strength") val strength: String,
     @SerializedName("speed") val speed: String,
@@ -19,10 +18,11 @@ data class PowerStatsResponse(
     @SerializedName("combat") val combat: String
 )
 
-data class SuperheroImageDetailResponse(@SerializedName("url") val url: String)
+data class SuperheroImageDetailDto(
+    @SerializedName("url") val url: String
+)
 
-data class Biography(
+data class BiographyDto(
     @SerializedName("full-name") val fullName: String,
     @SerializedName("publisher") val publisher: String
 )
-

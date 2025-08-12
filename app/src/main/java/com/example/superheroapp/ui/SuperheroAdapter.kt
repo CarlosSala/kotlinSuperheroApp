@@ -1,16 +1,18 @@
-package com.example.superheroapp
+package com.example.superheroapp.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.superheroapp.R
+import com.example.superheroapp.ui.model.SuperheroItemUI
 
 class SuperheroAdapter(
-    private var superheroList: List<SuperheroItemResponse> = emptyList(),
+    private var superheroList: List<SuperheroItemUI> = emptyList(),
     private val onItemSelected: (String) -> Unit
 ) :
     RecyclerView.Adapter<SuperheroViewHolder>() {
 
-    fun updateList(superheroList: List<SuperheroItemResponse>) {
+    fun updateList(superheroList: List<SuperheroItemUI>) {
         this.superheroList = superheroList
         notifyDataSetChanged()
     }
